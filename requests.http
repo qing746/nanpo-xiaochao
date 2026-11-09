@@ -3,3 +3,27 @@ GET http://localhost:8080/hello
 
 ### 第1课 · 访问不存在的路径（预期 404）
 GET http://localhost:8080/nobody-home
+
+### 2.1 查菜单（预期 6 道菜）
+GET http://localhost:8080/menu
+
+### 2.2 正常点单：回锅肉x2 + 米饭x2（预期 totalMoney=38）
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "dishList": [
+    { "dishName": "回锅肉", "count": 2 },
+    { "dishName": "米饭", "count": 2 }
+  ]
+}
+
+### 2.3 点不存在的菜——佛跳墙（预期 500，本课伏笔）
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "dishList": [
+    { "dishName": "佛跳墙", "count": 1 }
+  ]
+}
