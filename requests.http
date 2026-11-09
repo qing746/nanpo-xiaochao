@@ -1,0 +1,5 @@
+### 第1课 · 开业检查：店开了没有？
+GET http://localhost:8080/hello
+
+### 第1课 · 访问不存在的路径（预期 404）
+GET http://localhost:8080/nobody-home
